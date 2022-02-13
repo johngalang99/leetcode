@@ -4,7 +4,7 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         res = []
         nums.sort()
-
+        print(res)
         for i, a in enumerate(nums):
             if i > 0 and a == nums[i-1]:
                 continue
@@ -15,10 +15,10 @@ class Solution:
                     r -= 1
                 elif threeSum < 0:
                     l += 1
-                else: 
+                else:
                     res.append([a, nums[l], nums[r]])
                     l += 1
                     while nums[l] == nums[l -1] and l < r:
                         l += 1
 
-        return res        
+        return res
