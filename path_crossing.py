@@ -1,7 +1,8 @@
 def isPathCrossing(path):
-    points = {(0,0): 1}
+    points = set()
     x, y = 0, 0
     for c in path:
+        points.add((x, y))
         if c == "N":
             y += 1
         if c == "E":
@@ -10,16 +11,12 @@ def isPathCrossing(path):
             y -= 1
         if c == "W":
             x -= 1
-        points[(x, y)] = 1 + points.get((x,y), 0)
 
-    print(points)
-    has_value_greater_than_2 = any(value >= 2 for value in points.values())
-    print(has_value_greater_than_2)
-    if has_value_greater_than_2:
-          return True
-    else:
-        return False
+        if (x, y) in points:
+            return True
 
-isPathCrossing("NES")
-isPathCrossing("NESWW")
+    return False
+
+print(isPathCrossing("NES"))
+print(isPathCrossing("NESWW"))
 
