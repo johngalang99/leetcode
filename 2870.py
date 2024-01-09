@@ -1,16 +1,13 @@
 # /minimum-number-of-operations-to-make-array-empty/
-def minOperations(nums):
-    from collections import Counter
-    mp = Counter(nums)
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        count = Counter(nums)
+        res = 0
 
-    count = 0
-    for t in mp.values():
-        if t == 1:
-            return -1
-        count += t // 3
-        if t % 3:
-            count += 1
+        for value in count.values():
+            if value == 1:
+                return -1
 
-    return count
+            res += math.ceil(value/3)
 
-
+        return res
