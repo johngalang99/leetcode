@@ -16,3 +16,14 @@ class Solution:
             steps += abs(count_s[i] - count_t[i])
 
         return steps // 2
+
+
+# my solution lol
+class Solution:
+    def minSteps(self, s: str, t: str) -> int:
+        counter = [0] * 26
+        for i in range(len(s)):
+            counter[ord(s[i]) - ord('a')] += 1
+            counter[ord(t[i]) - ord('a')] -= 1
+
+        return abs(sum(n for n in counter if n < 0))
