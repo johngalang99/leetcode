@@ -1,4 +1,4 @@
-# Minimum Number of Steps to Make Two Strings Anagram
+# Minimum Number of Steps to Make Two Strings Anagram.
 
 class Solution:
     def minSteps(self, s: str, t: str) -> int:
